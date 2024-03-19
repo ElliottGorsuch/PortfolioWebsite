@@ -1,12 +1,11 @@
+// This code will be responsible for adding and then removing the intro after the animation is complete.
 document.addEventListener('DOMContentLoaded', function() {
+    var introName = document.getElementById('intro-name');
+    introName.style.opacity = '1'; // Trigger the CSS animation by changing the opacity
+
+    // Set a timeout to remove the intro-container after the animation completes
     setTimeout(function() {
-        document.getElementById('intro-name').style.opacity = 1;
-        setTimeout(function() {
-            document.getElementById('intro-container').style.opacity = 0;
-            setTimeout(function() {
-                document.getElementById('intro-container').style.display = 'none';
-            }, 1000); // This delays the removal of the intro container to allow the fade-out.
-        }, 4000); // This is the time that your name is fully visible.
-    }, 500); // This is the initial delay before your name starts to fade in.
+        var introContainer = document.getElementById('intro-container');
+        introContainer.style.display = 'none';
+    }, 5000); // 5000 ms for the full duration of the CSS animation
 });
-// script.js content will go here

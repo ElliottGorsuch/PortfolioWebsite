@@ -54,24 +54,35 @@ footer {
     background-size: cover;
 }
 
+/* ... Other styles ... */
+
+#intro-name {
+    font-size: 5rem; /* Adjust size as necessary */
+    color: white;
+    opacity: 0;
+    transform: scale(0); /* Start scaled down to zero */
+}
+
+@keyframes zoomInOut {
+    0%, 10% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    30%, 60% {
+        opacity: 1;
+        transform: scale(1); /* Scale up to 100% and hold */
+    }
+    90%, 100% {
+        opacity: 0;
+        transform: scale(10); /* Rapidly zoom out of view */
+    }
+}
+
 #intro-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    animation: fadeInOut 5s ease-in-out forwards;
+    animation: zoomInOut 5s ease-in-out forwards; /* Run the animation once */
 }
 
-#intro-name {
-    font-size: 5rem;
-    color: white;
-    opacity: 0;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; transform: scale(1); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: scale(5); }
-}
-
-/* ... Other styles ... */
