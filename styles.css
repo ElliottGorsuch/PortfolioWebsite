@@ -46,14 +46,14 @@ footer {
     width: 100%;
 }
 /* Existing styles */
-
 .fullscreen-bg {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://i.ibb.co/3hywY1c/mountain.jpg') no-repeat center center fixed; /* Correct the image URL */
+    /* Use the direct link to the image file. */
+    background: url('https://i.ibb.co/F0s3FHQ/mountain.jpg') no-repeat center center fixed;
     background-size: cover;
     z-index: -1; /* Keep the background behind the text */
 }
@@ -63,32 +63,35 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    position: relative; /* Add relative positioning */
+    position: relative; /* Ensure text is positioned relative to this container */
 }
 
 #intro-name {
-    font-size: 5rem; /* Adjust size as necessary */
+    font-size: 5rem;
     color: white;
     opacity: 0;
-    position: absolute; /* Positioning relative to intro-container */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.1); /* Centering the text */
+    transform: translate(-50%, -50%) scale(0.1); /* Center the text initially */
     animation: zoomInOut 5s ease-in-out forwards;
 }
 
 @keyframes zoomInOut {
-    0%, 10% {
+    0%, 20% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.1);
     }
-    30%, 60% {
+    40% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1); /* Centered and scaled to full size */
+        transform: translate(-50%, -50%) scale(1); /* Grow to full size and pause */
     }
-    90%, 100% {
+    50% {
+        transform: translate(-50%, -50%) scale(1); /* Hold the size for a moment */
+    }
+    70%, 100% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(10); /* Zooms out while staying centered */
+        transform: translate(-50%, -50%) scale(5); /* Rapidly zoom out */
     }
 }
 
